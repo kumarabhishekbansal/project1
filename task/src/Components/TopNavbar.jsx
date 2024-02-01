@@ -64,9 +64,9 @@ const TopNavbar = () => {
               <MdSearch onClick={toggleSearch} />
             </div>
             <div className="text-xl">
-              <NavLink to="/">
+              <NavLink to="/viewCart">
                 <MdShoppingCart />
-                <input type="number" name="cartitem" id="cartitem" readOnly className="border-rounded-full  border-black w-10" value={totalitems}/>
+                {/* <input type="number" name="cartitem" id="cartitem" readOnly className="border-rounded-full  border-black w-10" value={totalitems}/> */}
               </NavLink>
             </div>
             <div className="text-xl">

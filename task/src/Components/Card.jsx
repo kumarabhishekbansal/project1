@@ -1,7 +1,7 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 const Card = ({src,title,desc,price,id}) => {
-
+    const navigate=useNavigate();
     const handleAddToCart=({src,title,desc,price,id})=>{
         if(localStorage.getItem("cartitems"))
         {
@@ -17,11 +17,11 @@ const Card = ({src,title,desc,price,id}) => {
             }
             if(!flag)
             {
-                const data=[...JSON.parse(localStorage.getItem("cartitems")),{src,title,desc,price,id}];
+                const data=[...JSON.parse(localStorage.getItem("cartitems")),{src,title,desc,price,id,quantity:1}];
                 localStorage.setItem("cartitems",JSON.stringify(data));
             }
         }else{
-            localStorage.setItem("cartitems",JSON.stringify([{src,title,desc,price,id}]));
+            localStorage.setItem("cartitems",JSON.stringify([{src,title,desc,price,id,quantity:1}]));
         }
     }
 
@@ -49,6 +49,10 @@ const Card = ({src,title,desc,price,id}) => {
 
         <div>
             <h1 className='border-2 rounded-full bg-orange-600 p-4 cursor-pointer hover:bg-orange-300 selection:bg-green-300 active:scale-110' onClick={()=>handleAddToCart({src,title,desc,price,id})}>Add to cart</h1>
+        </div>
+        {/* view cart */}
+        <div>
+            <h1 className='border-2 rounded-full bg-green-600 p-4 cursor-pointer hover:bg-orange-300 selection:bg-green-300 active:scale-110' onClick={()=>navigate("/viewCart")}>View cart</h1>
         </div>
     </div>
    </>
