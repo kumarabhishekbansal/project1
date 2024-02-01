@@ -53,6 +53,7 @@ const ProductView = () => {
                   title={val.title}
                   desc={val.description.substring(0, 50)}
                   price={val.price}
+                  id={val.id}
                 />
               );
             } else if (accfilter === true && !val.category.includes("cloth")) {
@@ -62,6 +63,7 @@ const ProductView = () => {
                   title={val.title}
                   desc={val.description.substring(0, 50)}
                   price={val.price}
+                  id={val.id}
                 />
               );
             } else if (clothfilter === false && accfilter === false) {
@@ -71,6 +73,7 @@ const ProductView = () => {
                   title={val.title}
                   desc={val.description.substring(0, 50)}
                   price={val.price}
+                  id={val.id}
                 />
               );
             }
